@@ -4,6 +4,12 @@ A State Machine Manager for Swift
 SwiftState implements a state machine to manage state changes in a Swift Application.
 By ultilizing unidirectional data flow & usage of value type, SwiftState will helps to make your application easier to understand the logic of the application.
 
+Using:
+
+```
+pod 'SwiftState', :git => 'https://github.com/tuoitrevohoc/SwiftState.git'
+```
+
 Example of a state machine:
 
 For example a toogle button has two state: On / Off.
