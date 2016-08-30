@@ -94,8 +94,10 @@ public struct SimpleStateMachine<U: Equatable, V>: StateMachine {
     /// unsubscribe the channel
     ///
     /// - parameter id: the id of the listener to unsubscribe
-    public mutating func unsubscribe(id: String) {
-        listeners.removeValue(forKey: id)
+    public mutating func unsubscribe(id: String?) {
+        if let subsription = id {
+            listeners.removeValue(forKey: subsription)
+        }
     }
     
     ///

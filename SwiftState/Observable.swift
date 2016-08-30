@@ -28,6 +28,6 @@ public protocol Observable {
     /// unsubscribe the channel
     ///
     /// - parameter id: the id of the listener to unsubscribe
-    mutating func unsubscribe(id: String)
+    mutating func unsubscribe(id: String?)
     
 }
