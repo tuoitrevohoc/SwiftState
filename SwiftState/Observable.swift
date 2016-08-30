@@ -14,15 +14,15 @@ import Foundation
 public protocol Observable {
     
     ///
-    /// Call back handler
-    associatedtype StateCallBackHandler
+    /// change handler
+    typealias StateCallbackHandler = () -> ()
     
     ///
     /// subscribe to the change
     ///
     /// - parameter callback: the callback handler
     /// - returns: an id for unsubcribing later
-    mutating func subscribe(callback: StateCallBackHandler) -> String
+    mutating func subscribe(callback: StateCallbackHandler) -> String
     
     ///
     /// unsubscribe the channel

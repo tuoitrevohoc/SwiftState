@@ -53,7 +53,6 @@ class ListenToChangesTestCase: XCTestCase {
         doorStateMachine.dispatch(action: .Open)
         doorStateMachine.dispatch(action: .Close)
         doorStateMachine.dispatch(action: .Open)
-        doorStateMachine.dispatch(action: .Open) // no change detected here
         
         XCTAssert(callTimes == 3, "Data should be changed 3 times")
         

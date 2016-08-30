@@ -10,7 +10,8 @@ import Foundation
 
 ///
 /// the simple state machine implement with two type
-public struct SimpleStateMachine<U: Equatable, V>: StateMachine {
+public struct SimpleStateMachine<U, V>: StateMachine {
+    
     
     /// the type of the state
     public typealias StateType = U
@@ -21,7 +22,7 @@ public struct SimpleStateMachine<U: Equatable, V>: StateMachine {
     /// state handler function - handle state changes
     public typealias StateHandlerFunction = (StateType, ActionType) -> StateType
     
-    /// the state callback handler
+    /// state callback handler
     public typealias StateCallbackHandler = () -> ()
     
     /// stack to store state changes
@@ -41,16 +42,6 @@ public struct SimpleStateMachine<U: Equatable, V>: StateMachine {
                 listener()
             }
         }
-    }
-    
-    /// can redo
-    public var canReplay: Bool {
-        return position < stack.count - 1
-    }
-    
-    /// if we can unwind
-    public var canUnwind: Bool {
-        return position > 0
     }
     
     /// all listener to this store
@@ -73,9 +64,7 @@ public struct SimpleStateMachine<U: Equatable, V>: StateMachine {
     public mutating func dispatch(action: ActionType) {
         let newState = stateHandler(state, action)
         
-        if newState != state {
-            update(newState: newState)
-        }
+        update(newState: newState)
         
     }
     
@@ -106,31 +95,6 @@ public struct SimpleStateMachine<U: Equatable, V>: StateMachine {
     /// 
     /// - parameter newState: the target state to change
     private mutating func update(newState: StateType) {
-        
-        while position > stack.count - 1 {
-            stack.remove(at: stack.count - 1)
-        }
-        
-        stack.append(state)
-        position = stack.count - 1
-        
         state = newState
-    }
-    
-    /// unwind a step - go back to last state
-    ///
-    public mutating func unwind() {
-        if canUnwind {
-            position = position - 1
-            state = stack[position]
-        }
-    }
-    
-    /// redo a step - go forward a state
-    public mutating func replay() {
-        if canReplay {
-            position = position + 1
-            state = stack[position]
-        }
     }
 }
