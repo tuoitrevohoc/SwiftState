@@ -9,7 +9,7 @@
 import Foundation
 
 ///
-/// protocol store
+/// protocol for state machine
 public protocol StateMachine: Observable {
     
     /// the action type
@@ -30,13 +30,16 @@ public protocol StateMachine: Observable {
     /// if can redo
     var canReplay: Bool { get }
     
-    /// dispatch an action to the store
+    /// dispatch an action to the statemachine
+    ///
+    /// - parameter action: the action to send to the state machine
     mutating func dispatch(action: ActionType)
     
-    /// unwind a step
+    /// unwind a step - go back to last state
+    ///
     mutating func unwind()
     
-    /// redo a step
+    /// redo a step - go forward a state
     mutating func replay()
 }
 

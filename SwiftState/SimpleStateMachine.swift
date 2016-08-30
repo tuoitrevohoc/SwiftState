@@ -9,22 +9,22 @@
 import Foundation
 
 ///
-/// the store
+/// the simple state machine implement with two type
 public struct SimpleStateMachine<U: Equatable, V>: StateMachine {
     
-    /// the
+    /// the type of the state
     public typealias StateType = U
     
-    /// the action type
+    /// the type of an action that send to the state machine
     public typealias ActionType = V
     
-    /// state handler
+    /// state handler function - handle state changes
     public typealias StateHandlerFunction = (StateType, ActionType) -> StateType
     
     /// the state callback handler
     public typealias StateCallbackHandler = () -> ()
     
-    /// state type
+    /// stack to store state changes
     private var stack = [StateType]()
     
     /// the stack position
@@ -58,13 +58,18 @@ public struct SimpleStateMachine<U: Equatable, V>: StateMachine {
     
     ///
     /// initialize the store
-    public init(initialState: StateType, stateHandler handler: StateHandlerFunction) {
+    /// 
+    /// - parameter initialState: the initial state
+    /// - parameter handler: the state handler function to handle actions
+    public init(initialState: StateType,
+                stateHandler handler: StateHandlerFunction) {
         state = initialState
         stateHandler = handler
     }
     
+    /// dispatch an action to the statemachine
     ///
-    /// action coming
+    /// - parameter action: the action to send to the state machine
     public mutating func dispatch(action: ActionType) {
         let newState = stateHandler(state, action)
         
@@ -75,21 +80,29 @@ public struct SimpleStateMachine<U: Equatable, V>: StateMachine {
     }
     
     ///
-    /// subscribe for changes
+    /// subscribe to the change
     ///
+    /// - parameter callback: the callback handler
+    /// - returns: an id for unsubcribing later
     public mutating func subscribe(callback: StateCallbackHandler) -> String {
         let uid = UUID().uuidString
         listeners[uid] = callback
         return uid
     }
     
-    /// unsubscribe the callback
+    ///
+    /// unsubscribe the channel
+    ///
+    /// - parameter id: the id of the listener to unsubscribe
     public mutating func unsubscribe(id: String) {
         listeners.removeValue(forKey: id)
     }
     
     ///
     /// update to a new state
+    /// push state change to stack
+    /// 
+    /// - parameter newState: the target state to change
     private mutating func update(newState: StateType) {
         
         while position > stack.count - 1 {
@@ -102,7 +115,8 @@ public struct SimpleStateMachine<U: Equatable, V>: StateMachine {
         state = newState
     }
     
-    /// func unwind
+    /// unwind a step - go back to last state
+    ///
     public mutating func unwind() {
         if canUnwind {
             position = position - 1
@@ -110,7 +124,7 @@ public struct SimpleStateMachine<U: Equatable, V>: StateMachine {
         }
     }
     
-    /// func redo a step
+    /// redo a step - go forward a state
     public mutating func replay() {
         if canReplay {
             position = position + 1

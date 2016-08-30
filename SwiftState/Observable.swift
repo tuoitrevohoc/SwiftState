@@ -9,18 +9,25 @@
 import Foundation
 
 ///
-/// observable
+/// observable - able to observe the changes of an object
+///
 public protocol Observable {
     
     ///
-    /// state type
+    /// Call back handler
     associatedtype StateCallBackHandler
     
     ///
-    /// subscribe
+    /// subscribe to the change
+    ///
+    /// - parameter callback: the callback handler
+    /// - returns: an id for unsubcribing later
     mutating func subscribe(callback: StateCallBackHandler) -> String
     
+    ///
     /// unsubscribe the channel
+    ///
+    /// - parameter id: the id of the listener to unsubscribe
     mutating func unsubscribe(id: String)
     
 }

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3636FF3B1D75257F0032B977 /* DoorStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3636FF3A1D75257F0032B977 /* DoorStateMachine.swift */; };
+		3636FF3F1D7527BC0032B977 /* ButtonStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3636FF3E1D7527BC0032B977 /* ButtonStateMachine.swift */; };
+		3636FF421D7528CC0032B977 /* ListenToChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3636FF411D7528CC0032B977 /* ListenToChanges.swift */; };
+		3636FF451D7529E80032B977 /* ToDoListStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3636FF441D7529E80032B977 /* ToDoListStateMachine.swift */; };
+		3636FF471D752C880032B977 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3636FF461D752C880032B977 /* Extensions.swift */; };
 		367542D91D75228200B51B7E /* SwiftState.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367542CF1D75228200B51B7E /* SwiftState.framework */; };
 		367542E01D75228200B51B7E /* SwiftState.h in Headers */ = {isa = PBXBuildFile; fileRef = 367542D21D75228200B51B7E /* SwiftState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		367542EC1D75232D00B51B7E /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367542E91D75232D00B51B7E /* Observable.swift */; };
@@ -26,6 +31,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3636FF3A1D75257F0032B977 /* DoorStateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoorStateMachine.swift; sourceTree = "<group>"; };
+		3636FF3E1D7527BC0032B977 /* ButtonStateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStateMachine.swift; sourceTree = "<group>"; };
+		3636FF411D7528CC0032B977 /* ListenToChanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenToChanges.swift; sourceTree = "<group>"; };
+		3636FF441D7529E80032B977 /* ToDoListStateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListStateMachine.swift; sourceTree = "<group>"; };
+		3636FF461D752C880032B977 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		367542CF1D75228200B51B7E /* SwiftState.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftState.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		367542D21D75228200B51B7E /* SwiftState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftState.h; sourceTree = "<group>"; };
 		367542D31D75228200B51B7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +66,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3636FF3C1D7525990032B977 /* Tutorial_1 */ = {
+			isa = PBXGroup;
+			children = (
+				3636FF3A1D75257F0032B977 /* DoorStateMachine.swift */,
+			);
+			name = Tutorial_1;
+			sourceTree = "<group>";
+		};
+		3636FF3D1D75277B0032B977 /* Tutorial_0 */ = {
+			isa = PBXGroup;
+			children = (
+				3636FF3E1D7527BC0032B977 /* ButtonStateMachine.swift */,
+			);
+			name = Tutorial_0;
+			sourceTree = "<group>";
+		};
+		3636FF401D7528950032B977 /* Tutorial_2 */ = {
+			isa = PBXGroup;
+			children = (
+				3636FF411D7528CC0032B977 /* ListenToChanges.swift */,
+			);
+			name = Tutorial_2;
+			sourceTree = "<group>";
+		};
+		3636FF431D75299A0032B977 /* Tutorial_3 */ = {
+			isa = PBXGroup;
+			children = (
+				3636FF441D7529E80032B977 /* ToDoListStateMachine.swift */,
+			);
+			name = Tutorial_3;
+			sourceTree = "<group>";
+		};
 		367542C51D75228100B51B7E = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +122,7 @@
 				367542E91D75232D00B51B7E /* Observable.swift */,
 				367542EA1D75232D00B51B7E /* StateMachine.swift */,
 				367542EB1D75232D00B51B7E /* SimpleStateMachine.swift */,
+				3636FF461D752C880032B977 /* Extensions.swift */,
 				367542D21D75228200B51B7E /* SwiftState.h */,
 				367542D31D75228200B51B7E /* Info.plist */,
 			);
@@ -89,6 +132,10 @@
 		367542DC1D75228200B51B7E /* SwiftStateTests */ = {
 			isa = PBXGroup;
 			children = (
+				3636FF3D1D75277B0032B977 /* Tutorial_0 */,
+				3636FF3C1D7525990032B977 /* Tutorial_1 */,
+				3636FF401D7528950032B977 /* Tutorial_2 */,
+				3636FF431D75299A0032B977 /* Tutorial_3 */,
 				367542EF1D75233800B51B7E /* SimpleStateMachineTestCase.swift */,
 				367542DF1D75228200B51B7E /* Info.plist */,
 			);
@@ -211,6 +258,7 @@
 				367542EC1D75232D00B51B7E /* Observable.swift in Sources */,
 				367542EE1D75232D00B51B7E /* SimpleStateMachine.swift in Sources */,
 				367542ED1D75232D00B51B7E /* StateMachine.swift in Sources */,
+				3636FF471D752C880032B977 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				367542F01D75233800B51B7E /* SimpleStateMachineTestCase.swift in Sources */,
+				3636FF3F1D7527BC0032B977 /* ButtonStateMachine.swift in Sources */,
+				3636FF451D7529E80032B977 /* ToDoListStateMachine.swift in Sources */,
+				3636FF3B1D75257F0032B977 /* DoorStateMachine.swift in Sources */,
+				3636FF421D7528CC0032B977 /* ListenToChanges.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
