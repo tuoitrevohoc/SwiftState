@@ -53,7 +53,7 @@ public struct SimpleStateMachine<U, V>: StateMachine {
     /// - parameter initialState: the initial state
     /// - parameter handler: the state handler function to handle actions
     public init(initialState: StateType,
-                stateHandler handler: StateHandlerFunction) {
+                stateHandler handler: @escaping StateHandlerFunction) {
         state = initialState
         stateHandler = handler
     }
@@ -73,7 +73,7 @@ public struct SimpleStateMachine<U, V>: StateMachine {
     ///
     /// - parameter callback: the callback handler
     /// - returns: an id for unsubcribing later
-    public mutating func subscribe(callback: StateCallbackHandler) -> String {
+    public mutating func subscribe(callback: @escaping StateCallbackHandler) -> String {
         let uid = UUID().uuidString
         listeners[uid] = callback
         return uid

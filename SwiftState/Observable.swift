@@ -22,7 +22,7 @@ public protocol Observable {
     ///
     /// - parameter callback: the callback handler
     /// - returns: an id for unsubcribing later
-    mutating func subscribe(callback: StateCallbackHandler) -> String
+    mutating func subscribe(callback: @escaping StateCallbackHandler) -> String
     
     ///
     /// unsubscribe the channel
